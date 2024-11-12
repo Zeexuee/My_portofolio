@@ -1,0 +1,126 @@
+/* Resetting margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styling */
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Remove scroll for fullscreen effect */
+}
+
+.hero-section {
+    position: relative;
+    height: 100vh;
+    color: #fff;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    overflow: hidden;
+    z-index: 1; /* Ensure content stays above background animation */
+}
+
+.hero-text h1 {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.hero-text .highlight {
+    color: #ff7f50;
+}
+
+/* Typewriter animation */
+.typewriter-container {
+    display: inline-block; /* Isolasi animasi hanya untuk teks */
+    margin-bottom: 20px; /* Berikan jarak antara teks dan tombol */
+}
+
+.typewriter {
+    font-size: 1.25em;
+    color: #fff;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid #ff7f50;
+    animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #ff7f50; }
+}
+
+.btn-primary {
+    background-color: #ff7f50;
+    border: none;
+    position: relative;
+    z-index: 2; /* Ensure button stays above background animation */
+    margin-top: 10px; /* Tambahkan jarak dari animasi teks */
+}
+
+.social-icons a {
+    font-size: 1.5em;
+    color: #fff;
+    margin-right: 10px;
+    transition: color 0.3s;
+    position: relative;
+    z-index: 2;
+}
+
+.social-icons a:hover {
+    color: #ff7f50;
+}
+
+.avatar {
+    width: 300px;
+    border-radius: 50%;
+    transition: transform 0.3s;
+    position: relative;
+    z-index: 2;
+}
+
+.avatar:hover {
+    transform: scale(1.1);
+}
+
+/* Background Animation */
+.background-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Ensure background is behind content */
+    background: radial-gradient(circle, #2c3e50, #000);
+    overflow: hidden;
+}
+
+.background-animation::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: transparent url('https://www.transparenttextures.com/patterns/circles.png') repeat;
+    animation: move 30s linear infinite;
+    opacity: 0.3;
+}
+
+@keyframes move {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(100px, 100px);
+    }
+}
